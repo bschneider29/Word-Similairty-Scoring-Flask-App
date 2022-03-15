@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>
+        Similarity Scoring App</title>
+    <link rel="icon"  type="image/x-icon"/>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="sr-only">Similarity Scoring App</h1>
+    <header class="banner">
+        <div class="col-lg-12 col-sm-12 col-md-12">
+            <h2 class="sr-only">Banner Section</h2>
+            <div class="title-text">    
+                <h2 class="display-2">
+                    <span>Similarity Scoring App</span>
+                </h2>
+            </div>
+        </div>
+    </header>
+    <nav class="main navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav container d-flex justify-content-between flex-lg-row">
+        
+              </div>
+            </div>
+    </nav>
+    <main>
+        <section class="story  py-4">
+            <h2 class="sr-only">Updates Section</h2>
+            <div class="container py-5">
+                <h1 class="display-4 font-italic">Enter Words/Sentences Below</h1>
+                <p id="updates" class="pt-2 pb-3">
+                    <style> 
+                         input[type=submit]{
+                          background-color: #04AA6D;
+                          border: none;
+                          color: white;
+                          padding: 16px 32px;
+                          text-decoration: none;
+                          margin: 4px 2px;
+                          cursor: pointer;
+                        }
+                        </style>
+
+                    <form action="{{ url_for('views.main_page')}}" name="entry-doc" method="post">
+                    
+                        <input type="text" id= "text_1" name="text_1" style="height:100px;width:400px;font-size:14pt;">
+                     
+                        <input type="text" id="text_2" name="text_2" style="height:100px;width:400px;font-size:14pt;">
+                        
+                        <input type="submit" value="Score">
+
+                    </form>
+
+
+                    {{ Sim_Score_USE }}
+                   <br /> 
+                    {{ Sim_Score_BERT }}
+                    <br /> 
+                    {{ Sim_Score_WORD }}
+                </p>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
